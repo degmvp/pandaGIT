@@ -1,0 +1,84 @@
+
+/*
+---------------------------------------
+# ✅ xpan004
+# ✅ Pandas criado: 2021/10/27
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan004]
+AS
+/*
+#DataFrame.groupby-Group DataFrame or Series
+#-----------------X1PAN04-------------------
+
+import pandas as pd
+        alunos = {'Nome':['Ricardo','Pedro','Degmar','Lawrence'],
+                  'Nota':[4,7,5.5,9],
+                  'Aprovado':['Nao','Sim','Nao','Sim']}
+        alunoDF = pd.DataFrame(alunos)
+
+        print(alunoDF)
+       Nome  Nota Aprovado
+0   Ricardo   4.0      Nao
+1     Pedro   7.0      Sim
+2    Degmar   5.5      Nao
+3  Lawrence   9.0      Sim
+
+        print(alunoDF.groupby(['Nome']).mean())
+        print('-'*50)
+          Nota
+Nome          
+Degmar     5.5
+Lawrence   9.0
+Pedro      7.0
+Ricardo    4.0
+--------------------------------------------------
+        print(alunoDF.groupby(['Aprovado']).mean())
+        print('-'*50)
+          Nota
+Aprovado      
+Nao       4.75
+Sim       8.00
+--------------------------------------------------
+        rx = {'Car':['fiat','volks','honda','kia'],
+                  'kmhora':[120,160,200,230],
+                  'vendas':['fraca','otima','excelente','boa']}
+        rxDF = pd.DataFrame(rx)
+       print(rxDF)
+       print('-'*50)
+     Car  kmhora     vendas
+0   fiat     120      fraca
+1  volks     160      otima
+2  honda     200  excelente
+3    kia     230        boa
+--------------------------------------------------
+        print(rxDF.groupby(['Car']).mean())
+        print('-'*50)
+       kmhora
+Car          
+fiat      120
+honda     200
+kia       230
+volks     160
+--------------------------------------------------
+        print(rxDF.groupby(['vendas']).mean())
+        print('-'*50)
+           kmhora
+vendas           
+boa           230
+excelente     200
+fraca         120
+otima         160
+--------------------------------------------------
+       cmdDF = {'cmd':['concat','loc','iloc','DataFrame'],
+                  'Nota':[0,10,10,10],
+                  'Testado':['Nao','Sim','Sim','Sim']}
+        dDF = pd.DataFrame(cmdDF)
+ print(dDF)
+         cmd  Nota Testado
+0     concat     0     Nao
+1        loc    10     Sim
+2       iloc    10     Sim
+3  DataFrame    10     Sim
+
+*/

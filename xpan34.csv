@@ -1,0 +1,146 @@
+
+/*
+---------------------------------------
+# ✅ xpan034
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan034]
+AS
+/*
+#*********************************
+# X1DSC09 26/07/2021
+#*********************************
+import pandas as pd
+ufo = pd.read_csv('http://bit.ly/uforeports')
+ufo.head()
+City	Colors Reported	Shape Reported	State	Time
+0	Ithaca	NaN	TRIANGLE	NY	6/1/1930 22:00
+1	Willingboro	NaN	OTHER	NJ	6/30/1930 20:00
+2	Holyoke	NaN	OVAL	CO	2/15/1931 14:00
+3	Abilene	NaN	DISK	KS	6/1/1931 13:00
+4	New York Worlds Fair	NaN	LIGHT	NY	4/18/1933 19:00
+
+ufo.dtypes
+City               object
+Colors Reported    object
+Shape Reported     object
+State              object
+Time               object
+dtype: object
+
+ufo.Time.str.slice(-5, -3).astype(int).head()
+0    22
+1    20
+2    14
+3    13
+4    19
+Name: Time, dtype: int32
+
+ufo['Time'] = pd.to_datetime(ufo.Time)
+ufo.head()
+City	Colors Reported	Shape Reported	State	Time
+0	Ithaca	NaN	TRIANGLE	NY	1930-06-01 22:00:00
+1	Willingboro	NaN	OTHER	NJ	1930-06-30 20:00:00
+2	Holyoke	NaN	OVAL	CO	1931-02-15 14:00:00
+3	Abilene	NaN	DISK	KS	1931-06-01 13:00:00
+4	New York Worlds Fair	NaN	LIGHT	NY	1933-04-18 19:00:00
+
+ufo.dtypes
+City                       object
+Colors Reported            object
+Shape Reported             object
+State                      object
+Time               datetime64[ns]
+dtype: object
+
+ufo.Time.dt.hour
+0        22
+1        20
+2        14
+3        13
+4        19
+         ..
+18236    23
+18237    23
+18238    23
+18239    23
+18240    23
+Name: Time, Length: 18241, dtype: int64
+
+ufo.Time.dt.weekday
+ufo.Time.dt.dayofyear
+0        152
+1        181
+2         46
+3        152
+4        108
+        ... 
+18236    366
+18237    366
+18238    366
+18239    366
+18240    366
+Name: Time, Length: 18241, dtype: int64
+
+ufo.Time.dt.dayofweek
+0        6
+1        0
+2        6
+3        0
+4        1
+        ..
+18236    6
+18237    6
+18238    6
+18239    6
+18240    6
+Name: Time, Length: 18241, dtype: int64
+
+ufo.Time.dt.day
+0         1
+1        30
+2        15
+3         1
+4        18
+         ..
+18236    31
+18237    31
+18238    31
+18239    31
+18240    31
+Name: Time, Length: 18241, dtype: int64
+
+ts = pd.to_datetime('1/1/1999')
+ufo.loc[ufo.Time >= ts, :].head()
+City	Colors Reported	Shape Reported	State	Time
+12832	Loma Rica	NaN	LIGHT	CA	1999-01-01 02:30:00
+12833	Bauxite	NaN	NaN	AR	1999-01-01 03:00:00
+12834	Florence	NaN	CYLINDER	SC	1999-01-01 14:00:00
+12835	Lake Henshaw	NaN	CIGAR	CA	1999-01-01 15:00:00
+12836	Wilmington Island	NaN	LIGHT	GA	1999-01-01 17:15:00
+
+ufo.Time.max()
+Timestamp('2000-12-31 23:59:00')
+
+ufo.Time.min()
+Timestamp('1930-06-01 22:00:00')
+
+(ufo.Time.max() - ufo.Time.min()).days
+25781
+%matplotlib inline
+
+ufo['Year'] = ufo.Time.dt.year
+ufo.head()
+City	Colors Reported	Shape Reported	State	Time	Year
+0	Ithaca	NaN	TRIANGLE	NY	1930-06-01 22:00:00	1930
+1	Willingboro	NaN	OTHER	NJ	1930-06-30 20:00:00	1930
+2	Holyoke	NaN	OVAL	CO	1931-02-15 14:00:00	1931
+3	Abilene	NaN	DISK	KS	1931-06-01 13:00:00	1931
+4	New York Worlds Fair	NaN	LIGHT	NY	1933-04-18 19:00:00	1933
+
+ufo.Year.value_counts().sort_index().plot()
+<matplotlib.axes._subplots.AxesSubplot at 0x1457e9e5048>
+
+ 
+*/

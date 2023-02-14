@@ -1,0 +1,133 @@
+
+/*
+---------------------------------------
+# ✅ xpan033
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan033]
+AS
+/*
+#*********************************
+# X1DSC08 26/07/2021
+#*********************************
+import pandas as pd
+train = pd.read_csv('http://bit.ly/kaggletrain')
+train.head(1)
+PassengerId	Survived	Pclass	Name	Sex	Age	SibSp	Parch	Ticket	Fare	Cabin	Embarked	Sex_num	Name_length	Fare_cell	Fare_ceil
+0	1	0	3	Braund, Mr. Owen Harris	male	22.0	1	0	A/5 21171	7.25	NaN	S	1	23	8.0	8.0
+
+train['Sex_num'] = train.Sex.map({'female':0, 'male':1 })
+train.loc[0:4, ['Sex', 'Sex_num']]
+Sex	Sex_num
+0	male	1
+1	female	0
+2	female	0
+3	female	0
+4	male	1
+
+train['Name_length'] = train.Name.apply(len)
+train.loc[0:4, ['Name', 'Name_length']]
+Name	Name_length
+0	Braund, Mr. Owen Harris	23
+1	Cumings, Mrs. John Bradley (Florence Briggs Th...	51
+2	Heikkinen, Miss. Laina	22
+3	Futrelle, Mrs. Jacques Heath (Lily May Peel)	44
+4	Allen, Mr. William Henry	24
+
+import numpy as np
+train['Fare_ceil'] = train.Fare.apply(np.ceil)
+train[['Fare', 'Fare_ceil']] 
+Fare	Fare_ceil
+0	7.2500	8.0
+1	71.2833	72.0
+2	7.9250	8.0
+3	53.1000	54.0
+4	8.0500	9.0
+...	...	...
+886	13.0000	13.0
+887	30.0000	30.0
+888	23.4500	24.0
+889	30.0000	30.0
+890	7.7500	8.0
+891 rows × 2 columns
+
+def get_element(my_list, position):
+    return my_list[position]
+
+train.Name.str.split(',').apply(get_element, position=0).head()
+0       Braund
+1      Cumings
+2    Heikkinen
+3     Futrelle
+4        Allen
+Name: Name, dtype: object
+
+drk = pd.read_csv("E:\\@@dscience\\drk100.csv", sep=';')
+drk.head(2)
+country	beer_servings	spirit_servings	wine_servings	total_litres_of_pure_alcohol	continent
+0	Afghanistan	0.0	0.0	0.0	0.0	Asia
+1	Albania	89.0	132.0	54.0	4.9	Europe
+
+drk.loc[:, 'beer_servings':'wine_servings']
+beer_servings	spirit_servings	wine_servings
+0	0	0	0
+1	89	132	54
+2	25	0	14
+3	245	138	312
+4	217	57	45
+...	...	...	...
+188	333	100	3
+189	111	2	1
+190	6	0	0
+191	32	19	4
+192	64	18	4
+193 rows × 3 columns
+
+drk.loc[:, 'beer_servings':'wine_servings'].apply(max, axis=0)
+beer_servings      376
+spirit_servings    438
+wine_servings      370
+dtype: int64
+
+drk.loc[:, 'beer_servings':'wine_servings'].apply(max, axis=1)
+0        0
+1      132
+2       25
+3      312
+4      217
+      ... 
+188    333
+189    111
+190      6
+191     32
+192     64
+Length: 193, dtype: int64
+
+drk.loc[:, 'beer_servings':'wine_servings'].apply(min, axis=0)
+beer_servings      0
+spirit_servings    0
+wine_servings      0
+dtype: int64
+
+drk.loc[:, 'beer_servings':'wine_servings'].applymap(float)
+beer_servings	spirit_servings	wine_servings
+0	0.0	0.0	0.0
+1	89.0	132.0	54.0
+2	25.0	0.0	14.0
+3	245.0	138.0	312.0
+4	217.0	57.0	45.0
+...	...	...	...
+188	333.0	100.0	3.0
+189	111.0	2.0	1.0
+190	6.0	0.0	0.0
+191	32.0	19.0	4.0
+192	64.0	18.0	4.0
+193 rows × 3 columns
+
+drk.loc[:, 'beer_servings':'wine_servings'] = drk.loc[:, 'beer_servings':'wine_servings'].applymap(float)
+drk.head(2)
+country	beer_servings	spirit_servings	wine_servings	total_litres_of_pure_alcohol	continent
+0	Afghanistan	0.0	0.0	0.0	0.0	Asia
+1	Albania	89.0	132.0	54.0	4.9	Europe
+*/

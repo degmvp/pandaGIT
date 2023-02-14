@@ -1,0 +1,327 @@
+
+/*
+---------------------------------------
+# ✅ xpan015
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan015]
+AS
+/*
+#--------------------------------------
+# PANDAS - Tutorial X1PAN15 2021/08/11     
+#---------------------------------------
+import pandas as pd
+import numpy as np
+np.random.seed(101)
+df = pd.DataFrame(np.random.randn(5,4), index='A B C D E'.split(), columns= 'W X Y Z'.split())
+df.head()
+W	X	Y	Z
+A	2.706850	0.628133	0.907969	0.503826
+B	0.651118	-0.319318	-0.848077	0.605965
+C	-2.018168	0.740122	0.528813	-0.589001
+D	0.188695	-0.758872	-0.933237	0.955057
+E	0.190794	1.978757	2.605967	0.683509
+
+df['W']
+A    2.706850
+B    0.651118
+C   -2.018168
+D    0.188695
+E    0.190794
+Name: W, dtype: float64
+
+type(df['W'])
+pandas.core.series.Series
+type(df)
+pandas.core.frame.DataFrame
+
+df[['W', 'Y']]
+W	Y
+A	2.706850	0.907969
+B	0.651118	-0.848077
+C	-2.018168	0.528813
+D	0.188695	-0.933237
+E	0.190794	2.605967
+
+df.W
+A    2.706850
+B    0.651118
+C   -2.018168
+D    0.188695
+E    0.190794
+Name: W, dtype: float64
+
+df['nova'] = df['W'] 
+df.head()
+W	X	Y	Z	nova
+A	2.706850	0.628133	0.907969	0.503826	2.706850
+B	0.651118	-0.319318	-0.848077	0.605965	0.651118
+C	-2.018168	0.740122	0.528813	-0.589001	-2.018168
+D	0.188695	-0.758872	-0.933237	0.955057	0.188695
+E	0.190794	1.978757	2.605967	0.683509	0.190794
+
+df.drop('nova', axis=1)
+W	X	Y	Z
+A	2.706850	0.628133	0.907969	0.503826
+B	0.651118	-0.319318	-0.848077	0.605965
+C	-2.018168	0.740122	0.528813	-0.589001
+D	0.188695	-0.758872	-0.933237	0.955057
+E	0.190794	1.978757	2.605967	0.683509
+df
+W	X	Y	Z	nova
+A	2.706850	0.628133	0.907969	0.503826	2.706850
+B	0.651118	-0.319318	-0.848077	0.605965	0.651118
+C	-2.018168	0.740122	0.528813	-0.589001	-2.018168
+D	0.188695	-0.758872	-0.933237	0.955057	0.188695
+E	0.190794	1.978757	2.605967	0.683509	0.190794
+df.drop('nova', axis=1, inplace = True)
+df
+W	X	Y	Z
+A	2.706850	0.628133	0.907969	0.503826
+B	0.651118	-0.319318	-0.848077	0.605965
+C	-2.018168	0.740122	0.528813	-0.589001
+D	0.188695	-0.758872	-0.933237	0.955057
+E	0.190794	1.978757	2.605967	0.683509
+
+df.index
+Index(['A', 'B', 'C', 'D', 'E'], dtype='object')
+df.iloc[0, :]
+W    2.706850
+X    0.628133
+Y    0.907969
+Z    0.503826
+Name: A, dtype: float64
+
+df.loc['A','W'] # localiza o indice A da coluna W 
+2.706849839399938
+df.loc['A']# localiza o indice A das colunas W X Y Z (LINHA INTEIRA)
+W    2.706850
+X    0.628133
+Y    0.907969
+Z    0.503826
+Name: A, dtype: float64
+
+df.loc[['A', 'B'], ['X','Y','Z']]
+X	Y	Z
+A	0.628133	0.907969	0.503826
+B	-0.319318	-0.848077	0.605965
+
+df.iloc[1:4, 2:] #localização numerica slice
+Y	Z
+B	-0.848077	0.605965
+C	0.528813	-0.589001
+D	-0.933237	0.955057
+
+ufo = pd.read_table('http://bit.ly/uforeports', sep=',') 
+ufo.head(3)
+City	Colors Reported	Shape Reported	State	Time
+0	Ithaca	NaN	TRIANGLE	NY	6/1/1930 22:00
+1	Willingboro	NaN	OTHER	NJ	6/30/1930 20:00
+2	Holyoke	NaN	OVAL	CO	2/15/1931 14:00
+
+ufo.loc[0, :]
+City                       Ithaca
+Colors Reported               NaN
+Shape Reported           TRIANGLE
+State                          NY
+Time               6/1/1930 22:00
+Name: 0, dtype: object
+
+ufo.index
+RangeIndex(start=0, stop=18241, step=1)
+
+ufo.shape
+(18241, 5)
+
+ufo.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18241 entries, 0 to 18240
+Data columns (total 5 columns):
+ #   Column           Non-Null Count  Dtype 
+---  ------           --------------  ----- 
+ 0   City             18216 non-null  object
+ 1   Colors Reported  2882 non-null   object
+ 2   Shape Reported   15597 non-null  object
+ 3   State            18241 non-null  object
+ 4   Time             18241 non-null  object
+dtypes: object(5)
+memory usage: 712.7+ KB
+
+ufo.loc[[0, 1, 2], :]
+City	Colors Reported	Shape Reported	State	Time
+0	Ithaca	NaN	TRIANGLE	NY	6/1/1930 22:00
+1	Willingboro	NaN	OTHER	NJ	6/30/1930 20:00
+2	Holyoke	NaN	OVAL	CO	2/15/1931 14:00
+
+ufo.loc[0:2, :]
+City	Colors Reported	Shape Reported	State	Time
+0	Ithaca	NaN	TRIANGLE	NY	6/1/1930 22:00
+1	Willingboro	NaN	OTHER	NJ	6/30/1930 20:00
+2	Holyoke	NaN	OVAL	CO	2/15/1931 14:00
+
+ufo.loc[:, 'City']
+0                      Ithaca
+1                 Willingboro
+2                     Holyoke
+3                     Abilene
+4        New York Worlds Fair
+                 ...         
+18236              Grant Park
+18237             Spirit Lake
+18238             Eagle River
+18239             Eagle River
+18240                    Ybor
+Name: City, Length: 18241, dtype: object
+
+ufo.loc[:, ['City', 'State']]
+City	State
+0	Ithaca	NY
+1	Willingboro	NJ
+2	Holyoke	CO
+3	Abilene	KS
+4	New York Worlds Fair	NY
+...	...	...
+18236	Grant Park	IL
+18237	Spirit Lake	IA
+18238	Eagle River	WI
+18239	Eagle River	WI
+18240	Ybor	FL
+18241 rows × 2 columns
+
+ufo.loc[:, 'City' : 'State']
+City	Colors Reported	Shape Reported	State
+0	Ithaca	NaN	TRIANGLE	NY
+1	Willingboro	NaN	OTHER	NJ
+2	Holyoke	NaN	OVAL	CO
+3	Abilene	NaN	DISK	KS
+4	New York Worlds Fair	NaN	LIGHT	NY
+...	...	...	...	...
+18236	Grant Park	NaN	TRIANGLE	IL
+18237	Spirit Lake	NaN	DISK	IA
+18238	Eagle River	NaN	NaN	WI
+18239	Eagle River	RED	LIGHT	WI
+18240	Ybor	NaN	OVAL	FL
+18241 rows × 4 columns
+
+ufo.loc[0:2, 'City' : 'State']
+City	Colors Reported	Shape Reported	State
+0	Ithaca	NaN	TRIANGLE	NY
+1	Willingboro	NaN	OTHER	NJ
+2	Holyoke	NaN	OVAL	CO
+
+ufo.head(3)
+City	Colors Reported	Shape Reported	State	Time
+0	Ithaca	NaN	TRIANGLE	NY	6/1/1930 22:00
+1	Willingboro	NaN	OTHER	NJ	6/30/1930 20:00
+2	Holyoke	NaN	OVAL	CO	2/15/1931 14:00
+ufo.head(3).drop('Time', axis=1)
+City	Colors Reported	Shape Reported	State
+0	Ithaca	NaN	TRIANGLE	NY
+1	Willingboro	NaN	OTHER	NJ
+2	Holyoke	NaN	OVAL	CO
+
+ufo.loc[ufo.City=='Oakland', :]
+City	Colors Reported	Shape Reported	State	Time
+1694	Oakland	NaN	CIGAR	CA	7/21/1968 14:00
+2144	Oakland	NaN	DISK	CA	8/19/1971 0:00
+4686	Oakland	NaN	LIGHT	MD	6/1/1982 0:00
+7293	Oakland	NaN	LIGHT	CA	3/28/1994 17:00
+8488	Oakland	NaN	NaN	CA	8/10/1995 21:45
+8768	Oakland	NaN	NaN	CA	10/10/1995 22:40
+10816	Oakland	NaN	LIGHT	OR	10/1/1997 21:30
+10948	Oakland	NaN	DISK	CA	11/14/1997 19:55
+11045	Oakland	NaN	TRIANGLE	CA	12/10/1997 1:30
+12322	Oakland	NaN	FIREBALL	CA	10/9/1998 19:40
+12941	Oakland	NaN	CYLINDER	CA	1/23/1999 21:30
+16803	Oakland	NaN	TRIANGLE	MD	7/4/2000 23:00
+17322	Oakland	NaN	CYLINDER	CA	9/1/2000 21:35
+
+ufo.loc[ufo.City=='Oakland', 'State']
+1694     CA
+2144     CA
+4686     MD
+7293     CA
+8488     CA
+8768     CA
+10816    OR
+10948    CA
+11045    CA
+12322    CA
+12941    CA
+16803    MD
+17322    CA
+Name: State, dtype: object
+ufo.iloc[:, [0, 3]]
+City	State
+0	Ithaca	NY
+1	Willingboro	NJ
+2	Holyoke	CO
+3	Abilene	KS
+4	New York Worlds Fair	NY
+...	...	...
+18236	Grant Park	IL
+18237	Spirit Lake	IA
+18238	Eagle River	WI
+18239	Eagle River	WI
+18240	Ybor	FL
+18241 rows × 2 columns
+
+ufo.columns
+Index(['City', 'Colors Reported', 'Shape Reported', 'State', 'Time'], dtype='object')
+ufo.iloc[:, 0:4]
+City	Colors Reported	Shape Reported	State
+0	Ithaca	NaN	TRIANGLE	NY
+1	Willingboro	NaN	OTHER	NJ
+2	Holyoke	NaN	OVAL	CO
+3	Abilene	NaN	DISK	KS
+4	New York Worlds Fair	NaN	LIGHT	NY
+...	...	...	...	...
+18236	Grant Park	NaN	TRIANGLE	IL
+18237	Spirit Lake	NaN	DISK	IA
+18238	Eagle River	NaN	NaN	WI
+18239	Eagle River	RED	LIGHT	WI
+18240	Ybor	NaN	OVAL	FL
+18241 rows × 4 columns
+
+list(range(0, 4))
+[0, 1, 2, 3]
+ufo.iloc[0:3, :] #not included row 3
+City	Colors Reported	Shape Reported	State	Time
+0	Ithaca	NaN	TRIANGLE	NY	6/1/1930 22:00
+1	Willingboro	NaN	OTHER	NJ	6/30/1930 20:00
+2	Holyoke	NaN	OVAL	CO	2/15/1931 14:00
+ufo.loc[:, ['City', 'State']]
+City	State
+0	Ithaca	NY
+1	Willingboro	NJ
+2	Holyoke	CO
+3	Abilene	KS
+4	New York Worlds Fair	NY
+...	...	...
+18236	Grant Park	IL
+18237	Spirit Lake	IA
+18238	Eagle River	WI
+18239	Eagle River	WI
+18240	Ybor	FL
+18241 rows × 2 columns
+
+ufo.iloc[0:2, :]
+City	Colors Reported	Shape Reported	State	Time
+0	Ithaca	NaN	TRIANGLE	NY	6/1/1930 22:00
+1	Willingboro	NaN	OTHER	NJ	6/30/1930 20:00
+drk = pd.read_csv("E:\\@@pandas\\drk100.csv", sep=';')
+drk.head()
+country	beer_servings	spirit_servings	wine_servings	total_litres_of_pure_alcohol	continent
+0	Afghanistan	0	0	0	0.0	Asia
+1	Albania	89	132	54	4.9	Europe
+2	Algeria	25	0	14	0.7	Africa
+3	Andorra	245	138	312	12.4	Europe
+4	Angola	217	57	45	5.9	Africa
+drk.index
+RangeIndex(start=0, stop=193, step=1)
+drk.iloc[0:2, 0:2]
+country	beer_servings
+0	Afghanistan	0
+1	Albania	89
+*/

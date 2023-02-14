@@ -1,0 +1,56 @@
+
+/*
+---------------------------------------
+# ✅ xpan032
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan032]
+AS
+/*
+#*********************************
+# X1DSC07 26/07/2021
+#*********************************
+import pandas as pd
+
+tb = pd.read_excel("E:\\@@pandas\\vendas.xlsx",engine='openpyxl')
+
+tb.head()
+Código Venda	Data	ID Loja	Produto	Quantidade	Valor Unitário	Valor Final
+0	1	2019-01-01	Iguatemi Esplanada	Sapato Estampa	1	358	358
+1	1	2019-01-01	Iguatemi Esplanada	Camiseta	2	180	360
+2	1	2019-01-01	Iguatemi Esplanada	Sapato Xadrez	1	368	368
+3	2	2019-01-02	Norte Shopping	Relógio	3	200	600
+4	2	2019-01-02	Norte Shopping	Chinelo Liso	1	71	71
+
+tb.shape
+(93910, 7)
+
+fat_total = tb['Valor Final'].sum() # Faturamento total de todas as lojas
+display(fat_total)
+38959752
+
+# Faturamento por loja
+fat_por_loja = tb[['ID Loja','Valor Final']].groupby('ID Loja').sum()
+fat_por_loja.head()
+Valor Final
+ID Loja	
+Bourbon Shopping SP	1600260
+Center Shopping Uberlândia	1543961
+Iguatemi Campinas	1612460
+Iguatemi Esplanada	1596339
+Norte Shopping	1610477
+
+# Faturamento por loja e produto
+fat_por_prod = tb[['ID Loja', 'Produto','Valor Final']].groupby(['ID Loja','Produto']).sum()
+fat_por_prod.head()
+Valor Final
+ID Loja	Produto	
+Bourbon Shopping SP	Bermuda	9600
+Bermuda Estampa	10816
+Bermuda Linho	11700
+Bermuda Liso	9263
+Bermuda Listrado	10432
+ 
+
+*/

@@ -1,0 +1,63 @@
+
+/*
+---------------------------------------
+# ✅ xpan025
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan025]
+AS
+/*
+-------------------------------
+# TRICKS - X1TRICK10 2021/07/27
+-------------------------------
+import pandas as pd
+
+# Grava drinks1.txt em -("e:\\@@pantrick\\drinks1.txt")
+# Grava drinks2.txt em -("e:\\@@pantrick\\drinks2.txt")
+
+cols = ['country','beer_servings','spirit_servings']
+drinks1 = pd.read_csv('http://bit.ly/drinksbycountry', usecols=cols)
+
+cols = ['wine_servings','total_litres_of_pure_alcohol','continent']
+drinks2 = pd.read_csv('http://bit.ly/drinksbycountry', usecols=cols)
+
+drinks1.dtypes
+country            object
+beer_servings       int64
+spirit_servings     int64
+dtype: object
+
+drinks2.dtypes
+wine_servings                     int64
+total_litres_of_pure_alcohol    float64
+continent                        object
+dtype: object
+
+drinks1.to_csv("e:\\@@pantrick\\drinks1.txt")
+drinks2.to_csv("e:\\@@pantrick\\drinks2.txt")
+drink_files = ("e:\\@@pantrick\\drinks1.txt","e:\\@@pantrick\\drinks2.txt")
+
+glb = pd.concat((pd.read_csv(file) for file in drink_files), axis='columns').head()
+display(glb)
+Unnamed: 0	country	beer_servings	spirit_servings	Unnamed: 0	wine_servings	total_litres_of_pure_alcohol	continent
+0	0	Afghanistan	0	0	0	0	0.0	Asia
+1	1	Albania	89	132	1	54	4.9	Europe
+2	2	Algeria	25	0	2	14	0.7	Africa
+3	3	Andorra	245	138	3	312	12.4	Europe
+4	4	Angola	217	57	4	45	5.9	Africa
+
+glb.shape
+(5, 8)
+
+glb.dtypes
+Unnamed: 0                        int64
+country                          object
+beer_servings                     int64
+spirit_servings                   int64
+Unnamed: 0                        int64
+wine_servings                     int64
+total_litres_of_pure_alcohol    float64
+continent                        object
+dtype: object
+*/

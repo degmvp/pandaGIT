@@ -1,0 +1,62 @@
+/*
+---------------------------------------
+# ✅ xpan017
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan017]
+AS
+/*
+-------------------------------
+# TRICKS - X1TRICK02 2021/07/27
+-------------------------------
+import pandas as pd
+import numpy as np
+        # trick 2 - Rename columns mode 1
+        df = pd.DataFrame({'col one':[100, 200], 'col two':[300, 400]})
+        df = df.rename({'col one':'col_one', 'col two':'col_two'}, axis='columns') 
+
+display(df)
+	col_one	col_two
+	0	100	300
+	1	200	400
+
+        # trick 2 - Rename columns mode 2
+        df = pd.DataFrame({'col two':[100, 200], 'col four':[300, 400]})
+        df.columns = ['col_two', 'col_four']
+
+display(df)
+		col_two	col_four
+	0	100	300
+	1	200	400
+
+        # trick 2 - Rename columns mode 3
+        df = pd.DataFrame({'col ABC':[100, 200], 'col XYZ':[300, 400]})
+        df.columns = df.columns.str.replace(' ', '_')
+
+display(df)
+		col_ABC	col_XYZ
+	0	100	300
+	1	200	400
+
+        df = pd.DataFrame({'col one':[100, 200], 'col two':[300, 400]})
+        df.columns = ['col_one', 'col_two']
+
+        display(df)
+	col_one		col_two
+	0   100		300
+	1   200		400
+	
+	# add_prefix
+        df.add_prefix('X_')
+		X_col_one	X_col_two
+	0	100		300
+	1	200		400
+
+        # add_suffix
+        df.add_suffix('_Y')
+	col_one_Y	col_two_Y
+	0	100	300
+	1	200	400
+
+*/

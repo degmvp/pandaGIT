@@ -1,0 +1,67 @@
+
+/*
+---------------------------------------
+# ✅ xpan008
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan008]
+AS
+/*
+#--------------------------------------
+# PANDAS - Tutorial X1PAN08 2021/07/26        
+#---------------------------------------
+import pandas as pd
+df = pd.read_csv('e:\\@@pandas\\fish.csv')
+df.head()
+
+#utilizando a funcao lambda na funcao pd.DataFrame.apply()
+df['Height'].apply(lambda altura: round(altura, 2))
+ soma_lambda =  lambda num1, num2: num1 + num2
+ soma_lambda(10, 30) 
+
+#funcao de alta ordem
+#Utilizando a função lambda na função filter
+lista = [10,20,30,40,50]
+lista_filtrada = list(filter(lambda numero: numero > 30, lista))
+print(lista_filtrada )
+
+full_name = lambda first, last: f'Full name: {first.title()} {last.title()}'
+full_name('Degmar', 'Barbosa')
+
+# dis() expose a readable version of the Python bytecode 
+import dis
+add = lambda x, y: x + y
+type(add)
+dis.dis(add)
+
+add
+
+import dis
+def add(x, y): return x + y
+type(add)
+dis.dis(add)
+
+add
+
+div_zero = lambda x: x / 0
+div_zero(2)
+
+def div_zero(x): return x / 0
+div_zero(2)
+
+ (lambda x:
+... (x % 2 and 'odd' or 'even'))(4)
+
+(lambda x, y, z: x + y + z)(1, 2, 3)
+
+(lambda x, y, z=3: x + y + z)(1, 2)
+
+(lambda x, y, z=3: x + y + z)(1, y=2)
+
+(lambda *args: sum(args))(1,2,3)
+
+(lambda **kwargs: sum(kwargs.values()))(one=1, two=2, three=3)
+
+(lambda x, *, y=0, z=0: x + y + z)(1, y=2, z=3)
+*/

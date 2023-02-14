@@ -1,0 +1,135 @@
+
+/*
+---------------------------------------
+# ✅ xpan003
+# ✅ Pandas criado: 2021/10/27
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan003]
+AS
+/*
+
+        #---------------------------------------------------#
+        #  Objetivo:Pandas head(),DataFrame(),Series()      #
+        #           read_excel(),read_csv(),loc             #
+        #---------------------------------------------------#
+import pandas as pd
+import numpy as np
+        df = pd.DataFrame(np.random.randn(5, 4),
+                          index='A B C D E'.split(),
+                          columns='W X Y Z'.split())
+        print(df)
+          W         X         Y         Z
+A  0.159219 -0.017063 -0.249028 -0.372518
+B -1.682665 -1.067053  0.252465 -0.734297
+C -0.352475  0.823740 -0.204616 -1.155274
+D -1.128802  0.043349 -0.927690 -1.620974
+E -0.322817  0.719264 -0.601075 -0.856726
+
+        print(df.keys())
+Index(['W', 'X', 'Y', 'Z'], dtype='object')
+        print(df['W'])
+A    0.159219
+B   -1.682665
+C   -0.352475
+D   -1.128802
+E   -0.322817
+Name: W, dtype: float64
+
+        print(df[['W', 'Z']])
+          W         Z
+A  0.159219 -0.372518
+B -1.682665 -0.734297
+C -0.352475 -1.155274
+D -1.128802 -1.620974
+E -0.322817 -0.856726
+
+#DataFrame Create Column
+df['novaCol'] = df['W'] +  0
+        print(df)
+          W         X         Y         Z   novaCol
+A  0.159219 -0.017063 -0.249028 -0.372518  0.159219
+B -1.682665 -1.067053  0.252465 -0.734297 -1.682665
+C -0.352475  0.823740 -0.204616 -1.155274 -0.352475
+D -1.128802  0.043349 -0.927690 -1.620974 -1.128802
+E -0.322817  0.719264 -0.601075 -0.856726 -0.322817
+
+#Dataframe drop Column
+df.drop('novaCol', axis=1, inplace=True)
+df
+W	X	Y	Z
+A	0.159219	-0.017063	-0.249028	-0.372518
+B	-1.682665	-1.067053	0.252465	-0.734297
+C	-0.352475	0.823740	-0.204616	-1.155274
+D	-1.128802	0.043349	-0.927690	-1.620974
+E	-0.322817	0.719264	-0.601075	-0.856726
+
+sms = pd.read_csv("e:\\@@pandas\\bank.txt", encoding="UTF-8", sep=";",usecols = ['age', 'job'])
+print(sms)
+      age            job
+0      30     unemployed
+1      33       services
+2      35     management
+3      30     management
+4      59    blue-collar
+...   ...            ...
+4516   33       services
+4517   57  self-employed
+4518   57     technician
+4519   28    blue-collar
+4520   44   entrepreneur
+
+[4521 rows x 2 columns]
+
+print(sms.keys()) 
+Index(['age', 'job'], dtype='object')
+
+ print(sms.all) 
+<bound method DataFrame.all of       age            job
+0      30     unemployed
+1      33       services
+2      35     management
+3      30     management
+4      59    blue-collar
+...   ...            ...
+4516   33       services
+4517   57  self-employed
+4518   57     technician
+4519   28    blue-collar
+4520   44   entrepreneur
+
+[4521 rows x 2 columns]>
+
+ print(sms.dtypes) 
+age     int64
+job    object
+dtype: object
+
+sms.describe
+<bound method NDFrame.describe of       age            job
+0      30     unemployed
+1      33       services
+2      35     management
+3      30     management
+4      59    blue-collar
+...   ...            ...
+4516   33       services
+4517   57  self-employed
+4518   57     technician
+4519   28    blue-collar
+4520   44   entrepreneur
+
+[4521 rows x 2 columns]>
+
+sms.columns
+Index(['age', 'job'], dtype='object')
+sms.tail()
+age	job
+4516	33	services
+4517	57	self-employed
+4518	57	technician
+4519	28	blue-collar
+4520	44	entrepreneur
+
+
+*/

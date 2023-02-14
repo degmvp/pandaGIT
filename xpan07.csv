@@ -1,0 +1,113 @@
+
+/*
+---------------------------------------
+# ✅ xpan007
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan007]
+AS
+/*
+#--------------------------------------
+# PANDAS - Tutorial X1PAN07 2021/07/097        
+#---------------------------------------
+import pandas as pd
+s = pd.Series([3, -5, 7, 4], index=['a', 'b', 'c', 'd'])
+
+data = {'País': ['Bélgica', 'Índia', 'Brasil'],
+'Capital': ['Bruxelas', 'Nova Delhi', 'Brasília'],
+'População': [123465, 456789, 987654]}
+
+df = pd.DataFrame(data, columns=['País','Capital','População'])
+s.index
+Index(['a', 'b', 'c', 'd'], dtype='object')
+df.head()
+País	Capital	População
+0	Bélgica	Bruxelas	123465
+1	Índia	Nova Delhi	456789
+2	Brasil	Brasília	987654
+
+#Para ler arquivos CSV codificados em ISO
+df = pd.read_csv('E:\\@@PANDAS\\chips.txt', sep='\t')
+
+#Para gravar arquivos CSV
+df.to_csv('E:\\@@PANDAS\\gravar.csv')
+df.head()
+País	Capital	População
+0	Bélgica	Bruxelas	123465
+1	Índia	Nova Delhi	456789
+2	Brasil	Brasília	987654
+
+s.head()
+a    3
+b   -5
+c    7
+d    4
+dtype: int64
+
+# Removendo colunas utilizando o argumento axis=1
+df.drop('País', axis=1)
+Capital	População
+0	Bruxelas	123465
+1	Nova Delhi	456789
+2	Brasília	987654
+
+# Quantidade de linhas e colunas do DataFrame
+df.shape
+(3, 3)
+
+# Descrição do Index
+df.index
+RangeIndex(start=0, stop=3, step=1)
+
+# Colunas presentes no DataFrame
+df.columns
+Index(['País', 'Capital', 'População'], dtype='object')
+
+#Contagem de dados não-nulos
+df.count()
+País         3
+Capital      3
+População    3
+dtype: int64
+
+#Criando uma nova coluna em um DataFrame:
+df['Nova Coluna'] = 0
+
+#Renomeando colunas de um DataFrame:
+#Se seu DataFrame possui 3 colunas, passe 3 novos valores em uma lista
+df.columns = ['Coluna 1', 'Coluna 2', 'Coluna 3','Coluna 4']
+
+#Resumo dos dados:
+#Soma dos valores de um DataFrame
+df.sum()
+Coluna 1            BélgicaÍndiaBrasil
+Coluna 2    BruxelasNova DelhiBrasília
+Coluna 3                       1567908
+Coluna 4                             0
+dtype: object
+
+#Menor valor de um DataFrame
+df.min()
+Coluna 1      Brasil
+Coluna 2    Brasília
+Coluna 3      123465
+Coluna 4           0
+dtype: object
+
+#Maior valor
+df.max()
+Coluna 1         Índia
+Coluna 2    Nova Delhi
+Coluna 3        987654
+Coluna 4             0
+dtype: object
+
+#Index do menor valor
+df.min()
+Coluna 1      Brasil
+Coluna 2    Brasília
+Coluna 3      123465
+Coluna 4           0
+dtype: object
+*/

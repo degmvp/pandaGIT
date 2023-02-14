@@ -1,0 +1,59 @@
+
+/*
+---------------------------------------
+# ✅ xpan029
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan029]
+AS
+/*
+#*********************************
+# X1DSC04 26/07/2021
+#*********************************
+import pandas as pd
+# Ler ted.txt select em 5 colunas formata 
+# grava na variavel # dfgrav # 
+dfgrav = pd.read_csv('e:\\@@dscience\\ted.txt', encoding = "UTF-8", sep = ","
+                      ,usecols=["comments", "description",'duration', 'event', 'film_date'])
+                     
+dfgrav.shape
+
+dfgrav.head(2)
+
+dfgrav.axes
+dfgrav.index
+
+dfgrav.loc[0]              #ler todas as colunas da   row[0]
+
+dfgrav.film_date.head(1)   #ler todas as colunas da   row[1]
+
+dfgrav.film_date.head(2)   #ler qualquer coluna do DataFrame + col + head(n) n= num_rows
+
+dfgrav.film_date.head(5)   #ler 5 linas ou rows da col film_date 
+
+dfgrav[['comments','duration', 'event', 'film_date']].head(2)
+dfgrav[['comments','description','duration', 'event', 'film_date']].head(2)
+
+# Ler a variavel # dfgrav 
+# converte para arquivo csv 
+# grava gravted.txt
+
+dfgrav.to_csv("e:\\@@dscience\\gravted.txt")
+
+# Converte - film_date - pd.to_datetime(ted.film_date, unit='s')
+pd.to_datetime(dfgrav.film_date, unit='s')
+
+dfgrav.film_date.head()
+
+#cria uma coluna com os dados convertidos
+dfgrav['film_datetime']= pd.to_datetime(dfgrav.film_date, unit='s')
+
+dfgrav[['film_datetime']].head()
+
+dfgrav.film_datetime.dt.year
+
+dfgrav.film_datetime.dt.dayofweek
+ 
+
+*/

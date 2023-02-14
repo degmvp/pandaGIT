@@ -1,0 +1,107 @@
+/*
+---------------------------------------
+# ✅ xpan031
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan031]
+AS
+/*
+#*********************************
+# X1DSC06 26/07/2021
+#*********************************
+import pandas as pd
+
+drk1 = pd.read_csv('E:\\@@dscience\\drinks1.txt')
+drk2 = pd.read_csv('E:\\@@dscience\\drinks2.txt')
+
+drk1.head(2)
+Unnamed: 0	country	beer_servings	spirit_servings
+0	0	Afghanistan	0	0
+1	1	Albania	89	132
+drk2.head(2)
+Unnamed: 0	wine_servings	total_litres_of_pure_alcohol	continent
+0	0	0	0.0	Asia
+1	1	54	4.9	Europe
+drk3 = pd.concat([drk1, drk2],axis=1)
+drk3.head()
+Unnamed: 0	country	beer_servings	spirit_servings	Unnamed: 0	wine_servings	total_litres_of_pure_alcohol	continent
+0	0	Afghanistan	0	0	0	0	0.0	Asia
+1	1	Albania	89	132	1	54	4.9	Europe
+2	2	Algeria	25	0	2	14	0.7	Africa
+3	3	Andorra	245	138	3	312	12.4	Europe
+4	4	Angola	217	57	4	45	5.9	Africa
+drk3.to_csv("drk3con.csv", index=False, sep=';')
+#how to use "axis" parameter in pandas?
+drk3.drop('continent', axis=1).head()
+Unnamed: 0	country	beer_servings	spirit_servings	Unnamed: 0	wine_servings	total_litres_of_pure_alcohol
+0	0	Afghanistan	0	0	0	0	0.0
+1	1	Albania	89	132	1	54	4.9
+2	2	Algeria	25	0	2	14	0.7
+3	3	Andorra	245	138	3	312	12.4
+4	4	Angola	217	57	4	45	5.9
+drk3.drop(2, axis=0).head()
+Unnamed: 0	country	beer_servings	spirit_servings	Unnamed: 0	wine_servings	total_litres_of_pure_alcohol	continent
+0	0	Afghanistan	0	0	0	0	0.0	Asia
+1	1	Albania	89	132	1	54	4.9	Europe
+3	3	Andorra	245	138	3	312	12.4	Europe
+4	4	Angola	217	57	4	45	5.9	Africa
+5	5	Antigua & Barbuda	102	128	5	45	4.9	North America
+drk3.mean()
+Unnamed: 0                       96.000000
+beer_servings                   106.160622
+spirit_servings                  80.994819
+Unnamed: 0                       96.000000
+wine_servings                    49.450777
+total_litres_of_pure_alcohol      4.717098
+dtype: float64
+drk3.columns
+Index(['Unnamed: 0', 'country', 'beer_servings', 'spirit_servings',
+       'Unnamed: 0', 'wine_servings', 'total_litres_of_pure_alcohol',
+       'continent'],
+      dtype='object')
+drk3.head()
+Unnamed: 0	country	beer_servings	spirit_servings	Unnamed: 0	wine_servings	total_litres_of_pure_alcohol	continent
+0	0	Afghanistan	0	0	0	0	0.0	Asia
+1	1	Albania	89	132	1	54	4.9	Europe
+2	2	Algeria	25	0	2	14	0.7	Africa
+3	3	Andorra	245	138	3	312	12.4	Europe
+4	4	Angola	217	57	4	45	5.9	Africa
+drkok= drk3[['country','beer_servings', 'spirit_servings', 'wine_servings', 'total_litres_of_pure_alcohol','continent']]
+drkok.shape
+(193, 6)
+
+drkok.to_csv("drk100.csv", index=False, sep=';')
+drkok.mean()
+beer_servings                   106.160622
+spirit_servings                  80.994819
+wine_servings                    49.450777
+total_litres_of_pure_alcohol      4.717098
+dtype: float64
+drkok.mean(axis=0)
+drkok.mean(axis='index') # Tip top on axis
+beer_servings                   106.160622
+spirit_servings                  80.994819
+wine_servings                    49.450777
+total_litres_of_pure_alcohol      4.717098
+dtype: float64
+drkok.mean(axis=1)
+drkok.mean(axis='columns') # Tip top on axis
+0        0.000
+1       69.975
+2        9.925
+3      176.850
+4       81.225
+        ...   
+188    110.925
+189     29.000
+190      1.525
+191     14.375
+192     22.675
+Length: 193, dtype: float64
+drkok.mean(axis=0).shape
+(4,)
+drkok.mean(axis=1).shape
+(193,)
+
+*/

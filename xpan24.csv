@@ -1,0 +1,72 @@
+
+/*
+---------------------------------------
+# ✅ xpan024
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan024]
+AS
+/*
+-------------------------------
+# TRICKS - X1TRICK09 2021/07/27
+-------------------------------
+import pandas as pd
+#Build DataFrame from multiplefiles(row-wise)
+df1 = pd.read_csv('e:\\@@pantrick\\stock1.txt')
+df2 = pd.read_csv('e:\\@@pantrick\\stock2.txt')
+df3 = pd.read_csv('e:\\@@pantrick\\stock3.txt')
+
+df1.dtypes
+date         object
+value       float64
+quantity      int64
+mark         object
+
+dtype: object
+
+stock_files = ['e:\\@@pantrick\\stock1.txt', 'e:\\@@pantrick\\stock2.txt', 'e:\\@@pantrick\\stock3.txt']
+print(stock_files)
+['e:\\@@pantrick\\stock1.txt', 'e:\\@@pantrick\\stock2.txt', 'e:\\@@pantrick\\stock3.txt']
+
+# Use a generator expression to read the files
+# and concat to combine the files
+wpd = pd.concat((pd.read_csv(file) 
+                 for file in stock_files), ignore_index=True)
+wpd.head()
+date	value	quantity	mark
+0	2019-01-01	11.5	11	aaa
+1	2019-01-02	21.5	21	bbb
+2	2019-01-03	31.5	31	ccc
+3	2019-01-03	41.5	41	ddd
+4	2019-01-04	511.5	51	eee
+
+# Do you need to build a DataFrame from multiple files,
+# but also keep track of which row came from which file?
+# 1. Read files w/ gen expression, create new column w/ assign(),
+# 2. Combine w/ concat()
+pd.concat((pd.read_csv(file).assign(filename=file)
+                               for file in stock_files), ignore_index=True)
+date	value	quantity	mark	filename
+0	2019-01-01	11.5	11	aaa	e:\@@pantrick\stock1.txt
+1	2019-01-02	21.5	21	bbb	e:\@@pantrick\stock1.txt
+2	2019-01-03	31.5	31	ccc	e:\@@pantrick\stock1.txt
+3	2019-01-03	41.5	41	ddd	e:\@@pantrick\stock1.txt
+4	2019-01-04	511.5	51	eee	e:\@@pantrick\stock1.txt
+5	2019-01-05	61.5	61	fff	e:\@@pantrick\stock1.txt
+6	2019-01-06	71.5	71	ggg	e:\@@pantrick\stock1.txt
+7	2019-01-01	11.5	11	xxx	e:\@@pantrick\stock2.txt
+8	2019-01-02	21.5	21	bbb	e:\@@pantrick\stock2.txt
+9	2019-01-03	31.5	31	ccc	e:\@@pantrick\stock2.txt
+10	2019-01-03	41.5	41	ddd	e:\@@pantrick\stock2.txt
+11	2019-01-04	511.5	51	eee	e:\@@pantrick\stock2.txt
+12	2019-01-05	61.5	61	fff	e:\@@pantrick\stock2.txt
+13	2019-01-06	71.5	71	ggg	e:\@@pantrick\stock2.txt
+14	2019-01-01	11.5	11	yyy	e:\@@pantrick\stock3.txt
+15	2019-01-02	21.5	21	bbb	e:\@@pantrick\stock3.txt
+16	2019-01-03	31.5	31	ccc	e:\@@pantrick\stock3.txt
+17	2019-01-03	41.5	41	ddd	e:\@@pantrick\stock3.txt
+18	2019-01-04	511.5	51	eee	e:\@@pantrick\stock3.txt
+19	2019-01-05	61.5	61	fff	e:\@@pantrick\stock3.txt
+20	2019-01-06	71.5	71	ggg	e:\@@pantrick\stock3.txt
+*/

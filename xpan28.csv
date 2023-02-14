@@ -1,0 +1,54 @@
+/*
+---------------------------------------
+# ✅ xpan028
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan028]
+AS
+/*
+#*********************************
+# X1DSC03 26/07/2021
+#*********************************
+import pandas as pd
+
+ted = pd.read_csv('E://@@dscience/ted.txt')
+
+#faz backup do txt lido em tedbkp.txt
+ted.to_csv("e://@@dscience/tedbkp.txt")
+
+ted.dtypes
+
+ted.axes
+ 
+ted.index
+
+# Manipulação e Gravação de Dataset 
+ted.loc[0]            #ler todas as colunas da   row[0]
+
+ted.loc[1]            #ler todas as colunas da   row[1]
+
+ted.loc[0:2]          #ler todas as colunas das  row[0],row[1],row[2]
+
+ted.film_date.head(1) #ler qualquer coluna do DataFrame + col + head(n) n= num_rows
+
+ted.film_date.head(2) #ler 2 linas ou rows da col film_date 
+
+#select list SQL
+ted[['comments','duration', 'event', 'film_date', 'languages']].head() 
+
+#head.() # select top *SQL
+
+ted[['comments', 'duration', 'event', 'film_date', 'languages']].head(3)
+
+# ler as rows das duas colunas
+ted[['comments','views']].head() 
+
+ted.shape
+
+ted.columns
+
+ted.info()
+
+ted.describe()
+*/

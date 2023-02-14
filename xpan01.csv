@@ -1,0 +1,111 @@
+/*
+---------------------------------------
+# ✅ xpan001
+# ✅ Pandas criado: 2021/10/27
+# ✅ Objetivo:sql server - Pandas Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan001]
+AS
+/*
+-------------------------------
+# TUTORIAL - X1PAN01 2021/07/08
+-------------------------------
+import pandas as pd
+import numpy as np
+
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        Constructing DataFrame from a dictionary
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+        alunos = {'Nome':['Ricardo','Pedro','Degmar','Lawrence'],
+                  'Nota':[4,7,5.5,9],
+                  'Aprovado':['Nao','Sim','Nao','Sim']}
+                  
+        df = pd.DataFrame(alunos)
+        print(df)
+
+       Nome  Nota Aprovado
+0   Ricardo   4.0      Nao
+1     Pedro   7.0      Sim
+2    Degmar   5.5      Nao
+3  Lawrence   9.0      Sim
+
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        Constructing Series from a list
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  
+
+        objeto1 = pd.Series([2,6,9,10,5])
+        print(objeto1)
+0     2
+1     6
+2     9
+3    10
+4     5
+dtype: int64
+
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        Constructing DataFrame from numpy ndarray:
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
+
+        array1 = np.array([2,6,9,10,5])
+        print(array1)
+[ 2  6  9 10  5]
+
+array2 = np.array([(2,6,9,10,5), (6,12,2,9,10)])
+print(array2)
+[[ 2  6  9 10  5]
+ [ 6 12  2  9 10]]
+
+        objeto2 = pd.Series(array1)
+        print(objeto2)
+0     2
+1     6
+2     9
+3    10
+4     5
+dtype: int32
+
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        Using loc   Examples
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   
+
+        pri_linhas = df.loc[0:2]
+        print(pri_linhas)
+
+      Nome  Nota Aprovado
+0  Ricardo   4.0      Nao
+1    Pedro   7.0      Sim
+2   Degmar   5.5      Nao
+
+        pri_linhas = df.loc[0:3]
+        print(pri_linhas)
+
+       Nome  Nota Aprovado
+0   Ricardo   4.0      Nao
+1     Pedro   7.0      Sim
+2    Degmar   5.5      Nao
+3  Lawrence   9.0      Sim
+
+        novoDF = df.loc[df['Nota']!=9]
+        print(novoDF)
+
+      Nome  Nota Aprovado
+0  Ricardo   4.0      Nao
+1    Pedro   7.0      Sim
+2   Degmar   5.5      Nao
+
+        alunosReprovados = df.loc[df['Aprovado']!='Sim']
+        print(alunosReprovados)
+
+      Nome  Nota Aprovado
+0  Ricardo   4.0      Nao
+2   Degmar   5.5      Nao
+
+        alunosAprovados = df.loc[df['Aprovado'] =='Sim']
+        print(alunosAprovados)
+
+       Nome  Nota Aprovado
+1     Pedro   7.0      Sim
+3  Lawrence   9.0      Sim
+ 
+*/

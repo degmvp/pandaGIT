@@ -1,0 +1,237 @@
+/*
+---------------------------------------
+# ✅ xpan014
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan014]
+AS
+/*
+#--------------------------------------
+# PANDAS - Tutorial X1PAN14 2021/08/11     
+#---------------------------------------
+import pandas as pd
+import numpy as np
+ df = pd.read_csv("e:\\@@pandas\\winemag.csv", index_col=0,sep=",")
+df.info()
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 129971 entries, 0 to 129970
+Data columns (total 13 columns):
+ #   Column                 Non-Null Count   Dtype  
+---  ------                 --------------   -----  
+ 0   country                129908 non-null  object 
+ 1   description            129971 non-null  object 
+ 2   designation            92506 non-null   object 
+ 3   points                 129971 non-null  int64  
+ 4   price                  120975 non-null  float64
+ 5   province               129908 non-null  object 
+ 6   region_1               108724 non-null  object 
+ 7   region_2               50511 non-null   object 
+ 8   taster_name            103727 non-null  object 
+ 9   taster_twitter_handle  98758 non-null   object 
+ 10  title                  129971 non-null  object 
+ 11  variety                129970 non-null  object 
+ 12  winery                 129971 non-null  object 
+dtypes: float64(1), int64(1), object(11)
+memory usage: 13.9+ MB
+dfna.info()
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 108724 entries, 0 to 129970
+Data columns (total 13 columns):
+ #   Column                 Non-Null Count   Dtype  
+---  ------                 --------------   -----  
+ 0   country                108724 non-null  object 
+ 1   description            108724 non-null  object 
+ 2   designation            75036 non-null   object 
+ 3   points                 108724 non-null  int64  
+ 4   price                  101400 non-null  float64
+ 5   province               108724 non-null  object 
+ 6   region_1               108724 non-null  object 
+ 7   region_2               50511 non-null   object 
+ 8   taster_name            82847 non-null   object 
+ 9   taster_twitter_handle  79859 non-null   object 
+ 10  title                  108724 non-null  object 
+ 11  variety                108724 non-null  object 
+ 12  winery                 108724 non-null  object 
+dtypes: float64(1), int64(1), object(11)
+memory usage: 11.6+ MB
+dfna[['country', 'price', 'region_1']].query('country == "US"') 
+country	price	region_1
+2	US	14.0	Willamette Valley
+3	US	13.0	Lake Michigan Shore
+4	US	65.0	Willamette Valley
+10	US	19.0	Napa Valley
+12	US	34.0	Alexander Valley
+...	...	...	...
+129945	US	20.0	Santa Ynez Valley
+129949	US	35.0	Napa Valley
+129950	US	35.0	Napa Valley
+129952	US	22.0	Chiles Valley
+129967	US	75.0	Oregon
+54226 rows × 3 columns
+
+# Keep the DataFrame with valid entries in the same variable
+dfna = df.dropna(subset=['region_1'])
+dfna.head()
+
+df.index
+Int64Index([     0,      1,      2,      3,      4,      5,      6,      7,
+                 8,      9,
+            ...
+            129961, 129962, 129963, 129964, 129965, 129966, 129967, 129968,
+            129969, 129970],
+           dtype='int64', length=129971)
+df = df[df['country'].str.contains('Brazil', na = False)]
+df = df[['country', 'price', 'region_1']].query('country == "US"') 
+df.head()
+country	price	region_1
+2	US	14.0	Willamette Valley
+3	US	13.0	Lake Michigan Shore
+4	US	65.0	Willamette Valley
+10	US	19.0	Napa Valley
+12	US	34.0	Alexander Valley
+df.price.max()
+2013.0
+df.price.min()
+4.0
+df1 = df[['country', 'price', 'winery']].query('country == "Brazil" ')
+df1.head(5)
+country	price	winery
+5852	Brazil	36.0	Cave Geisse
+9151	Brazil	31.0	Villaggio Grando
+10565	Brazil	NaN	Salton
+10579	Brazil	NaN	Salton
+12669	Brazil	20.0	Château Lacave
+df1.shape
+(52, 3)
+df.query('country == "US" ')
+3439 rows × 13 columns
+
+dfusa = df[['country', 'price', 'winery']].query('country == "US" ')
+dfusa.head()
+country	price	winery
+2	US	14.0	Rainstorm
+3	US	13.0	St. Julian
+4	US	65.0	Sweet Cheeks
+10	US	19.0	Kirkland Signature
+12	US	34.0	Louis M. Martini
+dfusa = df[['country', 'price', 'winery']].query('price == 87 ') 
+dfusa.head()
+country	price	winery
+9454	Italy	87.0	Sobrero
+11090	Chile	87.0	Almaviva
+17005	Italy	87.0	Damilano
+19733	Italy	87.0	Paolo Scavino
+23096	US	87.0	Lazy Susan Ranch
+# Declaracao de umaq variavel externa da função query()
+x = 87  
+dfusa.query('price == @x & country == "Chile"')
+country	price	winery
+11090	Chile	87.0	Almaviva
+dfusa.query('price >= @x ')
+country	price	winery
+9454	Italy	87.0	Sobrero
+11090	Chile	87.0	Almaviva
+17005	Italy	87.0	Damilano
+19733	Italy	87.0	Paolo Scavino
+
+df100.shape
+(84, 3)
+w = 87
+y = 99
+
+dfx = df[['country', 'price', 'winery']].query('price == @w ') 
+dfx.head()
+country	price	winery
+9454	Italy	87.0	Sobrero
+11090	Chile	87.0	Almaviva
+17005	Italy	87.0	Damilano
+19733	Italy	87.0	Paolo Scavino
+23096	US	87.0	Lazy Susan Ranch
+
+dfx = df[['country', 'price', 'winery']].query('price == @y ') 
+dfx.head()
+country	price	winery
+5774	Italy	99.0	Monte del Frà
+6348	Portugal	99.0	Quevedo
+6572	France	99.0	Xavier Monnot
+6851	Italy	99.0	Il Marroneto
+7792	Italy	99.0	Mascarello Giuseppe e Figlio
+dfx['country']
+5774          Italy
+6348       Portugal
+6572         France
+6851          Italy
+7792          Italy
+            ...    
+122568     Portugal
+124598       France
+125867           US
+126470    Argentina
+127579           US
+Name: country, Length: 84, dtype: object
+
+dfx = df[['country', 'price', 'winery']].query('country == "Brazil"') 
+dfx['country'].map('Pais....: {}'.format).head(10)
+5852     Pais....: Brazil
+9151     Pais....: Brazil
+10565    Pais....: Brazil
+10579    Pais....: Brazil
+12669    Pais....: Brazil
+13218    Pais....: Brazil
+14726    Pais....: Brazil
+14734    Pais....: Brazil
+14739    Pais....: Brazil
+15989    Pais....: Brazil
+Name: country, dtype: object
+frame = pd.DataFrame(np.random.randn(4, 3), columns=list('bde'), index=['Utah', 'Ohio', 'Texas', 'Oregon'])
+frame.head()
+b	d	e
+Utah	0.391593	0.750321	1.092529
+Ohio	-0.826494	-0.450934	-0.041049
+Texas	-0.047534	-0.255637	-0.508063
+Oregon	-0.051963	-0.315956	-0.923782
+ f = lambda x: x.max() - x.min()
+frame.apply(f)
+b    1.218087
+d    1.201255
+e    2.016311
+dtype: float64
+ p=pd.Series([1,2,3])
+p
+0    1
+1    2
+2    3
+dtype: int64
+p.apply(lambda x: pd.Series([x, x]))
+0	1
+0	1	1
+1	2	2
+2	3	3
+p.map(lambda x: pd.Series([x, x]))
+0    0    1
+1    1
+dtype: int64
+1    0    2
+1    2
+dtype: int64
+2    0    3
+1    3
+dtype: int64
+dtype: object
+k=pd.Series([1,0,3,4,2])
+k
+0    1
+1    0
+2    3
+3    4
+4    2
+dtype: int64
+k.map(k)
+0    0
+1    1
+2    4
+3    2
+4    3
+dtype: int64
+*/

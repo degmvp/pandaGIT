@@ -1,0 +1,40 @@
+/*
+---------------------------------------
+# ✅ xpan018
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan018]
+AS
+/*
+-------------------------------
+# TRICKS - X1TRICK03 2021/07/27
+-------------------------------
+import pandas as pd
+
+# trick 3 - Reverse row order
+#Site from internet
+drinks = pd.read_csv('http://bit.ly/drinksbycountry')
+
+drinks.head()
+
+drinks.shape
+
+drinks.loc[::-1].head() # Reverse row order (slice ::-1)
+
+drinks.loc[::-1].reset_index(drop=True).head()
+
+drinks.keys()
+
+drinks.index
+
+# Drop a row by index
+drinks.drop([0, 1])
+
+drinks.dtypes
+
+# drop columns 
+drinks.drop(columns=['spirit_servings'])
+
+display(drinks)
+*/

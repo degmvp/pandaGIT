@@ -1,0 +1,44 @@
+/*
+---------------------------------------
+# ✅ xpan019
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan019]
+AS
+/*
+-------------------------------
+# TRICKS - X1TRICK04 2021/07/27
+-------------------------------
+Site from internet
+drinks = pd.read_csv('http://bit.ly/drinksbycountry')
+                 drinks.head()
+       country  beer_servings  ...  total_litres_of_pure_alcohol  continent
+0  Afghanistan              0  ...                           0.0       Asia
+1      Albania             89  ...                           4.9     Europe
+2      Algeria             25  ...                           0.7     Africa
+3      Andorra            245  ...                          12.4     Europe
+4       Angola            217  ...                           5.9     Africa
+
+[5 rows x 6 columns]
+# trick 4 - Reverse column order
+drinks.loc[::-1].head()
+       country  beer_servings  ...  total_litres_of_pure_alcohol      continent
+192   Zimbabwe             64  ...                           4.7         Africa
+191     Zambia             32  ...                           2.5         Africa
+190      Yemen              6  ...                           0.1           Asia
+189    Vietnam            111  ...                           2.0           Asia
+188  Venezuela            333  ...                           7.7  South America
+
+[5 rows x 6 columns]
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+drinks.loc[:, ::-1].head() # : , Reverse column order
+  continent  total_litres_of_pure_alcohol  ...  beer_servings      country
+0      Asia                           0.0  ...              0  Afghanistan
+1    Europe                           4.9  ...             89      Albania
+2    Africa                           0.7  ...             25      Algeria
+3    Europe                          12.4  ...            245      Andorra
+4    Africa                           5.9  ...            217       Angola
+
+[5 rows x 6 columns]
+*/

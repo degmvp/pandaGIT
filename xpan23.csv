@@ -1,0 +1,65 @@
+
+/*
+---------------------------------------
+# ✅ xpan023
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan023]
+AS
+/*
+-------------------------------
+# TRICKS - X1TRICK08 2021/07/27
+-------------------------------
+import pandas as pd
+import numpy as np
+#(loc/iloc/concat/np.r_)
+#  Use df.loc to select & pd.concat to combine
+#  Use np.r_ to combine slices & df.iloc to select
+
+df =  pd.DataFrame(np.random.rand(3, 11), columns=list('ABCDEFGHIJK'))
+df.dtypes
+A    float64
+B    float64
+C    float64
+D    float64
+E    float64
+F    float64
+G    float64
+H    float64
+I    float64
+J    float64
+K    float64
+dtype: object
+df.head()
+A	B	C	D	E	F	G	H	I	J	K
+0	0.000201	0.792035	0.061254	0.564237	0.095209	0.692887	0.092026	0.966589	0.520876	0.831692	0.601042
+1	0.752651	0.049162	0.783851	0.186991	0.147487	0.349542	0.710525	0.366920	0.398396	0.328101	0.106067
+2	0.936334	0.064622	0.721529	0.838174	0.373399	0.074762	0.448667	0.201744	0.875051	0.822592	0.714104
+pdc = pd.concat([df.loc[:, 'A':'C'], df.loc[:, 'F'], df.loc[:, 'J':'K']], axis='columns')
+pdc.head()
+A	B	C	F	J	K
+0	0.000201	0.792035	0.061254	0.692887	0.831692	0.601042
+1	0.752651	0.049162	0.783851	0.349542	0.328101	0.106067
+2	0.936334	0.064622	0.721529	0.074762	0.822592	0.714104
+dfx = df[list(df.columns[0:3]) + list(df.columns[5]) + list(df.columns[9:11])]
+dfx.head()
+A	B	C	F	J	K
+0	0.000201	0.792035	0.061254	0.692887	0.831692	0.601042
+1	0.752651	0.049162	0.783851	0.349542	0.328101	0.106067
+2	0.936334	0.064622	0.721529	0.074762	0.822592	0.714104
+dfx.dtypes
+A    float64
+B    float64
+C    float64
+F    float64
+J    float64
+K    float64
+dtype: object
+dfi = df.iloc[:, np.r_[0:3, 5, 9:11]]
+dfi.head()
+A	B	C	F	J	K
+0	0.000201	0.792035	0.061254	0.692887	0.831692	0.601042
+1	0.752651	0.049162	0.783851	0.349542	0.328101	0.106067
+2	0.936334	0.064622	
+*/

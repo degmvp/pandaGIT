@@ -1,0 +1,69 @@
+
+/*
+---------------------------------------
+# ✅ xpan005
+# ✅ Pandas criado: 2021/10/27
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan005]
+AS
+/*
+##pd.read_csv to DataFrame
+import pandas as pd
+
+ df = pd.read_csv("e:\\@@pandas\\bank.txt", encoding="UTF-8", sep=";")
+    print(df.head(2))
+    print(df.keys())
+    print(df.shape)
+   age         job  marital  education default  balance housing loan  \
+0   30  unemployed  married    primary      no     1787      no   no   
+1   33    services  married  secondary      no     4789     yes  yes   
+
+    contact  day month  duration  campaign  pdays  previous poutcome   y  
+0  cellular   19   oct        79         1     -1         0  unknown  no  
+1  cellular   11   may       220         1    339         4  failure  no  
+
+Index(['age', 'job', 'marital', 'education', 'default', 'balance', 'housing',
+       'loan', 'contact', 'day', 'month', 'duration', 'campaign', 'pdays',
+       'previous', 'poutcome', 'y'],
+      dtype='object')
+(4521, 17)
+
+df1 = df[['age','job','balance','pdays', 'marital', 'education']]
+
+# DataFrame -Simulando um select list SQL
+print(df[["age", "job",'marital', 'education', 'default', 'balance']].head())
+   age          job  marital  education default  balance
+0   30   unemployed  married    primary      no     1787
+1   33     services  married  secondary      no     4789
+2   35   management   single   tertiary      no     1350
+3   30   management  married   tertiary      no     1476
+4   59  blue-collar  married  secondary      no        0
+
+df1.query( 'age > 70 & job == "management" ')
+age	job	balance	pdays	marital	education
+688	80	management	6483	-1	married	primary
+
+cols = df.columns
+print(cols)
+Index(['age', 'job', 'marital', 'education', 'default', 'balance', 'housing',
+       'loan', 'contact', 'day', 'month', 'duration', 'campaign', 'pdays',
+       'previous', 'poutcome', 'y'],
+      dtype='object')
+
+df1.query('balance == 0 & age > 80') #Cliewntes com contas saldo == 0
+age	job	balance	pdays	marital	education
+633	83	retired	0	-1	married	secondary
+4323	83	retired	0	77	divorced	primary
+
+df1.query('age > 80 & balance == 0')
+age	job	balance	pdays	marital	education
+633	83	retired	0	-1	married	secondary
+4323	83	retired	0	77	divorced	primary
+
+df1.shape
+(4521, 6)
+df1.query( 'age > 70 & job == "management" ')
+age	job	balance	pdays	marital	education
+688	80	management	6483	-1	married	primary	1	77	3	success	no
+*/

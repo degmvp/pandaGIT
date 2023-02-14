@@ -1,0 +1,62 @@
+
+/*
+---------------------------------------
+# ✅ xpan009
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan009]
+AS
+/*
+#--------------------------------------
+# PANDAS - Tutorial X1PAN09 2021/07/31     
+#---------------------------------------
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('e:\\@@pandas\\fish.csv')
+df.head()
+Species	Weight	Length1	Length2	Length3	Height	Width
+0	Bream	242.0	23.2	25.4	30.0	11.5200	4.0200
+1	Bream	290.0	24.0	26.3	31.2	12.4800	4.3056
+2	Bream	340.0	23.9	26.5	31.1	12.3778	4.6961
+3	Bream	363.0	26.3	29.0	33.5	12.7300	4.4555
+4	Bream	430.0	26.5	29.0	34.0	12.4440	5.1340
+
+df['Width'].apply(np.square) # convert_dtype=False)  convert_dtype=True)
+
+df.dtypes
+df['Width'].apply(lambda x: x**2)
+0      16.160400
+1      18.538191
+2      22.053355
+3      19.851480
+4      26.357956
+         ...    
+154     1.942121
+155     1.610361
+156     1.577034
+157     4.273316
+158     3.531393
+Name: Width, Length: 159, dtype: float64
+
+def soma(*args):
+    return sum(args)
+
+df['Width'].apply(soma, args=(1,2,3))
+
+df1 = pd.DataFrame([[1,2,[1,2,3]], [3,4, [4,5,6]], [5,6, [7,8,9]]], columns=['col1', 'col2','col3'])
+df1
+
+df1['col3'].apply(lambda item: [x**2 if x == 2 else x for x in item])
+
+df1.drop('col3', axis=1,inplace=True)
+
+#df1.apply(np.square)
+
+df1.dtypes
+df1.apply(np.square, raw=True)
+df1.columns
+df1.apply(lambda x: x.col3, axis=1, result_type='expand')
+df1.apply(lambda x: 'col1' if x.col1 > x.col2 else 'col2',axis=1, result_type='broadcast')
+*/

@@ -1,0 +1,44 @@
+/*
+---------------------------------------
+# ✅ xpan013
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan013]
+AS
+/*
+#--------------------------------------
+# PANDAS - Tutorial X1PAN13 2021/08/11     
+#---------------------------------------
+# O coeficiente de correlação de Pearson é um teste que mede 
+# a relação estatística entre duas variáveis contínuas. 
+# Se a associação entre os elementos não for linear, 
+# o coeficiente não será representado adequadamente. 
+# O coeficiente de correlação de Pearson pode ter um intervalo de valores de +1 a -1.
+
+import seaborn as sns
+import pandas as np
+
+df = sns.load_dataset('penguins')
+
+df.head()
+species	island	bill_length_mm	bill_depth_mm	flipper_length_mm	body_mass_g	sex
+0	Adelie	Torgersen	39.1	18.7	181.0	3750.0	Male
+1	Adelie	Torgersen	39.5	17.4	186.0	3800.0	Female
+2	Adelie	Torgersen	40.3	18.0	195.0	3250.0	Female
+3	Adelie	Torgersen	NaN	NaN	NaN	NaN	NaN
+4	Adelie	Torgersen	36.7	19.3	193.0	3450.0	Female
+
+df.corr()
+bill_length_mm	bill_depth_mm	flipper_length_mm	body_mass_g
+bill_length_mm	1.000000	-0.235053	0.656181	0.595110
+bill_depth_mm	-0.235053	1.000000	-0.583851	-0.471916
+flipper_length_mm	0.656181	-0.583851	1.000000	0.871202
+body_mass_g	0.595110	-0.471916	0.871202	1.000000
+
+sns.heatmap(df.corr(), annot=True,vmin=-1, vmax=1)
+<matplotlib.axes._subplots.AxesSubplot at 0x24ffbaebf88>
+
+sns.heatmap(df.corr(), annot=True,vmin=-1, vmax=1,cmap='coolwarm')
+<matplotlib.axes._subplots.AxesSubplot at 0x24ffbbbc308>
+*/

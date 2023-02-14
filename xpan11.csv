@@ -1,0 +1,85 @@
+/*
+---------------------------------------
+# ✅ xpan011
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan011]
+AS
+/*
+#--------------------------------------
+# PANDAS - Tutorial X1PAN11 2021/07/31     
+#---------------------------------------
+import pandas as pd
+
+dados = [[6,6,15], [9,15,14], [16,1,14],[4,19,16],[13,20,3],
+         [6,18,7], [16,8,10], [8, 1, 3],[12,9,11]]
+df = pd.DataFrame(dados, columns=['col1', 'col2','col3'])
+df['col2'] = df['col2'].astype('int64')
+df
+col1	col2	col3
+0	6	6	15
+1	9	15	14
+2	16	1	14
+3	4	19	16
+4	13	20	3
+5	6	18	7
+6	16	8	10
+7	8	1	3
+8	12	9	11
+
+df[df['col1'] > 6]
+col1	col2	col3
+1	9	15	14
+2	16	1	14
+4	13	20	3
+6	16	8	10
+7	8	1	3
+8	12	9	11
+
+df[(df['col1'] > 6) & (df['col2'] > 6)]
+col1	col2	col3
+1	9	15	14
+4	13	20	3
+6	16	8	10
+8	12	9	11
+
+df[df['col1'].between(6, 10)] # valores entre intervalo
+col1	col2	col3
+0	6	6	15
+1	9	15	14
+5	6	18	7
+7	8	1	3
+
+df[~df['col1'].between(6, 10)] # valores negados ~ 
+col1	col2	col3
+2	16	1	14
+3	4	19	16
+4	13	20	3
+6	16	8	10
+8	12	9	11
+
+df[df.max(axis=1) <= 12 ] # filtro da função max()
+col1	col2	col3
+7	8	1	3
+8	12	9	11
+
+df[df.sum(axis=1) <= 12 ] # filtro da soma
+col1	col2	col3
+7	8	1	3
+
+df[df['col1'].isin([6,12])] # valoes conidos na função isin()
+col1	col2	col3
+0	6	6	15
+5	6	18	7
+8	12	9	11
+
+dados = [['deg','well','good'], ['skin','car','ball'], ['aula','class','tree'],['black','green','blue']]
+af = pd.DataFrame(dados, columns=['col1', 'col2','col3'])
+af
+af[af['col1'] == 'deg']
+af[af['col3'].isin(['blue','black'])]
+af[af['col3'].str.len() >= 4 ]
+af[af['col3'].str.contains('oo')]
+af[af['col3'].str.contains('oo|ee')]
+*/

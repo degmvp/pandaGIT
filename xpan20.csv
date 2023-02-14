@@ -1,0 +1,65 @@
+/*
+---------------------------------------
+# ✅ xpan020
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan020]
+AS
+/*
+-------------------------------
+# TRICKS - X1TRICK05 2021/07/27
+-------------------------------
+import pandas as pd
+drinks = pd.read_csv('http://bit.ly/drinksbycountry')
+drinks.head()
+country	beer_servings	spirit_servings	wine_servings	total_litres_of_pure_alcohol	continent
+0	Afghanistan	0	0	0	0.0	Asia
+1	Albania	89	132	54	4.9	Europe
+2	Algeria	25	0	14	0.7	Africa
+3	Andorra	245	138	312	12.4	Europe
+4	Angola	217	57	45	5.9	Africa
+drinks.dtypes
+country                          object
+beer_servings                     int64
+spirit_servings                   int64
+wine_servings                     int64
+total_litres_of_pure_alcohol    float64
+continent                        object
+dtype: object
+drinks.select_dtypes(include='object').head()
+country	continent
+0	Afghanistan	Asia
+1	Albania	Europe
+2	Algeria	Africa
+3	Andorra	Europe
+4	Angola	Africa
+drinks.select_dtypes(include='float64').head()
+total_litres_of_pure_alcohol
+0	0.0
+1	4.9
+2	0.7
+3	12.4
+4	5.9
+drinks.select_dtypes(include='int64').head()
+beer_servings	spirit_servings	wine_servings
+0	0	0	0
+1	89	132	54
+2	25	0	14
+3	245	138	312
+4	217	57	45
+drinks.select_dtypes(include=['number','object']).head()
+country	beer_servings	spirit_servings	wine_servings	total_litres_of_pure_alcohol	continent
+0	Afghanistan	0	0	0	0.0	Asia
+1	Albania	89	132	54	4.9	Europe
+2	Algeria	25	0	14	0.7	Africa
+3	Andorra	245	138	312	12.4	Europe
+4	Angola	217	57	45	5.9	Africa
+drinks.select_dtypes(exclude='number').head()
+country	continent
+0	Afghanistan	Asia
+1	Albania	Europe
+2	Algeria	Africa
+3	Andorra	Europe
+4	Angola	Africa
+*/

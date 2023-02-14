@@ -1,0 +1,69 @@
+
+/*
+---------------------------------------
+# ✅ xpan030
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PANDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan030]
+AS
+/*
+#*********************************
+# X1DSC05 26/07/2021
+#*********************************
+import pandas as pd
+df = pd.DataFrame({'id':[100,101,102], 'color':['red','blue','red']}, columns=['id', 'color'], index=['a','b','c'])
+df.head()
+id	color
+a	100	red
+b	101	blue
+c	102	red
+pd.DataFrame([[100, 'red'],[101, 'blue'],[102, 'red']], columns=['id', 'color'])
+id	color
+0	100	red
+1	101	blue
+2	102	red
+import numpy as np
+arr = np.random.rand(4,2)
+arr
+array([[0.77621746, 0.95489459],
+       [0.42953263, 0.27532308],
+       [0.8221031 , 0.8422376 ],
+       [0.94137039, 0.60421923]])
+pd.DataFrame(arr, columns=['one', 'two'],                                    )
+one	two
+0	0.776217	0.954895
+1	0.429533	0.275323
+2	0.822103	0.842238
+3	0.941370	0.604219
+pd.DataFrame({'student':np.arange(100, 110, 1), 'test':np.random.randint(60, 101, 10)}).set_index('student')                          
+test
+student	
+100	69
+101	63
+102	79
+103	96
+104	93
+105	62
+106	84
+107	63
+108	91
+109	70
+s = pd.Series(['round', 'square'], index=['c', 'b'], name='shape')
+s
+c     round
+b    square
+Name: shape, dtype: object
+df
+id	color
+a	100	red
+b	101	blue
+c	102	red
+pd.concat([df, s], axis=1)
+id	color	shape
+a	100	red	NaN
+b	101	blue	square
+c	102	red	round
+ 
+
+*/

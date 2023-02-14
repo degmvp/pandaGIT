@@ -1,0 +1,100 @@
+/*
+---------------------------------------
+# ✅ xpan010
+# ✅ Pandas criado: 2021/08/11
+# ✅ Objetivo:sql server - PAQNDAS Lib
+---------------------------------------*/
+CREATE proc [dbo].[xpan010]
+AS
+/*
+#--------------------------------------
+# PANDAS - Tutorial X1PAN10 2021/07/31     
+#---------------------------------------
+import pandas as pd
+dados =[[1,2,3], [4,5,6], [7,8,9], [10,11,12]]
+df = pd.DataFrame(dados,
+                 index=['lin1', 'lin2', 'lin3', 'lin4'],
+                 columns=['col1', 'col2','col3'])
+df
+col1	col2	col3
+lin1	1	2	3
+lin2	4	5	6
+lin3	7	8	9
+lin4	10	11	12
+
+df.shape
+(4, 3)
+
+# localizar o valor 5
+df['col2']['lin2']
+5
+df.at['lin2', 'col2']
+5
+
+#substituir o valor no DataFrame com at
+df.at['lin2', 'col2'] = 45
+df.head()
+col1	col2	col3
+lin1	1	2	3
+lin2	4	45	6
+lin3	7	8	9
+lin4	10	11	12
+
+df.iat[1, 1]
+45
+
+#Filtrar linhas loc iloc
+df.loc['lin1']
+col1    1
+col2    2
+col3    3
+Name: lin1, dtype: int64
+
+df.loc[['lin1', 'lin3']]
+col1	col2	col3
+lin1	1	2	3
+lin3	7	8	9
+
+df.iloc[[0, 2]]
+col1	col2	col3
+lin1	1	2	3
+lin3	7	8	9
+
+df.iloc[0:3]
+col1	col2	col3
+lin1	1	2	3
+lin2	4	45	6
+lin3	7	8	9
+
+df.iloc[1:]
+col1	col2	col3
+lin2	4	45	6
+lin3	7	8	9
+lin4	10	11	12
+
+df.loc['lin1':'lin3']
+col1	col2	col3
+lin1	1	2	3
+lin2	4	45	6
+lin3	7	8	9
+
+df.loc[(df['col1'] > 2) & (df['col1'] < 5)]
+col1	col2	col3
+lin2	4	45	6
+
+df.iloc[0] = 0
+df
+col1	col2	col3
+lin1	0	0	0
+lin2	4	45	6
+lin3	7	8	9
+lin4	10	11	12
+
+df.iloc[2] = -df.iloc[2]  # Tornar os valores indice lin3 negativo
+df
+col1	col2	col3
+lin1	0	0	0
+lin2	4	45	6
+lin3	-7	-8	-9
+lin4	10	11	12
+*/
